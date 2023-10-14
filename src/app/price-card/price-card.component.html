@@ -1,0 +1,16 @@
+<div class="card shadow-lg rounded-4 p-3 mb-5">
+    <div class="d-flex flex-column align-items-center">
+        <h6 class="fs-6 t fw-bold text-muted text-uppercase">{{priceCard.plan}}</h6>
+        <h5 class=""><span class="fw-bold fs-1">${{priceCard.price}}</span><sub>/month</sub></h5>
+    </div>
+    <hr>
+    <div class="d-flex flex-column align-items-start">
+        <div class="d-flex align-items-center" *ngFor="let feature of priceCard.features">
+            <i class="bi bi-check fs-3" *ngIf="feature.isEnabled"></i>
+            <i class="bi bi-x fs-3 text-muted" *ngIf="!feature.isEnabled"></i>
+            <span [ngClass]="{'text-secondary': !feature.isEnabled}">{{feature.feature}}</span>
+
+        </div>
+        <button class="btn btn-primary mt-4 rounded-pill p-3" style="width: 100%;">Start</button>
+    </div>
+</div>
